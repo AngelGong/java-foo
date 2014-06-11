@@ -7,12 +7,24 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.LogManager;
 
+import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.impl.Jdk14Logger;
 
 public class Main {
 	public static void main(String[] args) {
 		
+		log4jLoggerTest();
+	}
+	
+	public static void log4jLoggerTest()
+	{
+		Log log = LogFactory.getLog(Main.class);
+		log.info("log4j common-logging");
+	}
+	
+	public static void jdk14loggerTest()
+	{
 		LogManager logManager = LogManager.getLogManager();
 		try {
 			InputStream stream = new FileInputStream(new File("./log/mylogging.properties"));
